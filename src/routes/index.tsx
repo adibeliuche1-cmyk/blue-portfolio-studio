@@ -69,11 +69,11 @@ function Index() {
               </a>
             </div>
             <div className="mt-12 flex items-center gap-8 text-sm text-muted-foreground">
-              <div><div className="text-2xl font-bold text-foreground">8+</div>Years experience</div>
+              <div><div className="text-2xl font-bold text-foreground">3+</div>Years experience</div>
               <div className="h-10 w-px bg-border" />
-              <div><div className="text-2xl font-bold text-foreground">60+</div>Projects shipped</div>
+              <div><div className="text-2xl font-bold text-foreground">10+</div>Projects shipped</div>
               <div className="h-10 w-px bg-border" />
-              <div><div className="text-2xl font-bold text-foreground">14</div>Awards</div>
+              <div><div className="text-2xl font-bold text-foreground">2</div>Awards</div>
             </div>
           </div>
 
