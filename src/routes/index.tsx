@@ -117,7 +117,7 @@ function Index() {
           <div className="mt-16 grid md:grid-cols-3 gap-6">
             {[
               { icon: Palette, title: "Product Design", desc: "End-to-end interface design from research to polished pixels, design systems, and prototypes." },
-              { icon: Code2, title: "Engineering", desc: "Production-grade React, TypeScript, and motion. Code that designers love and engineers respect." },
+              { icon: Code2, title: "Engineering", desc: "Production-grade React, JavaScript, and motion. Code that designers love and engineers respect." },
               { icon: Rocket, title: "Brand & Strategy", desc: "Identity systems, voice, and positioning for early-stage startups ready to make a mark." },
             ].map((s, i) => (
               <div key={i} className="group relative p-8 rounded-3xl border border-border bg-card hover:shadow-elegant transition-smooth overflow-hidden">
