@@ -190,7 +190,7 @@ function Index() {
           <div className="grid grid-cols-2 gap-4">
             {[
               ["Design", "Figma · Framer · Rive"],
-              ["Code", "React · TS · Swift"],
+              ["Code", "React · JS · Swift"],
               ["Motion", "GSAP · Lottie"],
               ["Research", "Maze · Dovetail"],
             ].map(([k, v]) => (
