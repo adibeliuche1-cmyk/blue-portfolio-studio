@@ -154,11 +154,12 @@ function Index() {
             <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">What I do</p>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight">A blend of craft, code, and clarity.</h2>
           </div>
-          <div className="mt-16 grid md:grid-cols-3 gap-6">
+          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Palette, title: "Product Design", desc: "End-to-end interface design from research to polished pixels, design systems, and prototypes." },
               { icon: Code2, title: "Engineering", desc: "Production-grade React, JavaScript, and motion. Code that designers love and engineers respect." },
               { icon: Rocket, title: "Brand & Strategy", desc: "Identity systems, voice, and positioning for early-stage startups ready to make a mark." },
+              { icon: Globe, title: "Front-End Developer & WordPress Developer", desc: "I build fast, responsive, and modern websites that help businesses grow online." },
             ].map((s, i) => (
               <div key={i} className="group relative p-8 rounded-3xl border border-border bg-card hover:shadow-elegant transition-smooth overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-hero opacity-0 group-hover:opacity-5 transition-smooth" />
