@@ -6,9 +6,9 @@ import logo from "@/assets/logo.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alex Carter — Product Designer & Engineer" },
-      { name: "description", content: "Portfolio of Alex Carter, a product designer and engineer crafting refined digital experiences." },
-      { property: "og:title", content: "Alex Carter — Portfolio" },
+      { title: "Richie Nice — Product Designer & Engineer" },
+      { name: "description", content: "Portfolio of Richie Nice, a product designer and engineer crafting refined digital experiences." },
+      { property: "og:title", content: "Richie Nice — Portfolio" },
       { property: "og:description", content: "Refined digital experiences in design and engineering." },
     ],
   }),
@@ -56,7 +56,7 @@ function Index() {
               <span className="text-gradient">precision & soul.</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-              I'm Alex — a product designer and engineer building thoughtful interfaces
+              I'm Richie Nice — a product designer and engineer building thoughtful interfaces
               for ambitious teams. Currently shaping the next generation of fintech tools.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -79,7 +79,7 @@ function Index() {
           <div className="lg:col-span-5 relative animate-fade-up" style={{ animationDelay: "0.2s" }}>
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-elegant">
               <div className="absolute inset-0 bg-gradient-hero opacity-40 mix-blend-overlay z-10" />
-              <img src={heroPortrait} alt="Portrait of Alex Carter" width={1024} height={1280} className="size-full object-cover" />
+              <img src={heroPortrait} alt="Portrait of Richie Nice" width={1024} height={1280} className="size-full object-cover" />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-card border border-border rounded-2xl p-4 shadow-soft animate-float">
               <div className="flex items-center gap-3">
@@ -212,8 +212,8 @@ function Index() {
               <p className="text-lg opacity-90 max-w-xl mx-auto mb-10">
                 Available for new collaborations starting July 2026. Tell me about your project.
               </p>
-              <a href="mailto:hello@alexcarter.dev" className="inline-flex items-center gap-3 rounded-full bg-background text-foreground px-8 py-4 font-medium hover:scale-[1.02] transition-smooth shadow-elegant">
-                <Mail className="size-5" /> hello@alexcarter.dev
+              <a href="mailto:hello@richienice.dev" className="inline-flex items-center gap-3 rounded-full bg-background text-foreground px-8 py-4 font-medium hover:scale-[1.02] transition-smooth shadow-elegant">
+                <Mail className="size-5" /> hello@richienice.dev
               </a>
               <div className="mt-10 flex items-center justify-center gap-4">
                 <a href="#" className="size-11 grid place-items-center rounded-full bg-background/10 hover:bg-background/20 transition-smooth"><Github className="size-5" /></a>
@@ -226,7 +226,7 @@ function Index() {
 
       <footer className="border-t border-border py-10">
         <div className="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© 2026 Alex Carter. Designed and built with care.</p>
+          <p>© 2026 Richie Nice. Designed and built with care.</p>
           <p>Stockholm · Remote worldwide</p>
         </div>
       </footer>
