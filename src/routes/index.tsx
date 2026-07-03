@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Mail, Github, Linkedin, Code2, Palette, Rocket, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import { ArrowRight, Mail, Phone, Github, Linkedin, Code2, Palette, Rocket, Sparkles, Loader2 } from "lucide-react";
 import heroPortraitAsset from "@/assets/richie-nice.png.asset.json";
 const heroPortrait = heroPortraitAsset.url;
 import logo from "@/assets/logo.png.asset.json";
@@ -17,6 +19,44 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    if (!name || name.length > 100) return toast.error("Please enter your name (max 100 chars).");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255) return toast.error("Please enter a valid email.");
+    if (!message || message.length > 2000) return toast.error("Please enter a message (max 2000 chars).");
+
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/richienice5@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _subject: `New portfolio inquiry from ${name}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      toast.success("Message sent! I'll get back to you soon.");
+      form.reset();
+    } catch {
+      toast.error("Couldn't send message. Please email me directly.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/20">
       {/* Nav */}
@@ -206,20 +246,49 @@ function Index() {
       {/* Contact */}
       <section id="contact" className="py-28">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="relative rounded-[2.5rem] p-12 md:p-20 bg-gradient-hero text-primary-foreground shadow-elegant overflow-hidden text-center">
+          <div className="relative rounded-[2.5rem] p-8 md:p-14 bg-gradient-hero text-primary-foreground shadow-elegant overflow-hidden">
             <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 70% 30%, white, transparent 50%)" }} />
-            <div className="relative">
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Let's build something remarkable.</h2>
-              <p className="text-lg opacity-90 max-w-xl mx-auto mb-10">
-                Available for new collaborations starting July 2026. Tell me about your project.
-              </p>
-              <a href="mailto:richienice5@gmail.com" className="inline-flex items-center gap-3 rounded-full bg-background text-foreground px-8 py-4 font-medium hover:scale-[1.02] transition-smooth shadow-elegant whitespace-pre-wrap">
-                <Mail className="size-5" /> richienice5@gmail.com{"\n"}Tel: +2349029148866
-              </a>
-              <div className="mt-10 flex items-center justify-center gap-4">
-                <a href="#" className="size-11 grid place-items-center rounded-full bg-background/10 hover:bg-background/20 transition-smooth"><Github className="size-5" /></a>
-                <a href="#" className="size-11 grid place-items-center rounded-full bg-background/10 hover:bg-background/20 transition-smooth"><Linkedin className="size-5" /></a>
+            <div className="relative grid md:grid-cols-2 gap-10 items-center">
+              <div className="text-center md:text-left">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Let's build something remarkable.</h2>
+                <p className="text-base opacity-90 mb-8">
+                  Available for new collaborations starting July 2026. Send me a note and I'll reply within 24 hours.
+                </p>
+                <div className="space-y-3 text-sm">
+                  <a href="mailto:richienice5@gmail.com" className="flex items-center gap-3 justify-center md:justify-start hover:opacity-90 transition-smooth">
+                    <Mail className="size-4" /> richienice5@gmail.com
+                  </a>
+                  <a href="tel:+2349029148866" className="flex items-center gap-3 justify-center md:justify-start hover:opacity-90 transition-smooth">
+                    <Phone className="size-4" /> +234 902 914 8866
+                  </a>
+                </div>
+                <div className="mt-8 flex items-center justify-center md:justify-start gap-4">
+                  <a href="#" aria-label="GitHub" className="size-11 grid place-items-center rounded-full bg-background/10 hover:bg-background/20 transition-smooth"><Github className="size-5" /></a>
+                  <a href="#" aria-label="LinkedIn" className="size-11 grid place-items-center rounded-full bg-background/10 hover:bg-background/20 transition-smooth"><Linkedin className="size-5" /></a>
+                </div>
               </div>
+
+              <form onSubmit={handleSubmit} className="bg-background text-foreground rounded-2xl p-6 md:p-8 shadow-soft space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-1.5">Name</label>
+                  <input id="name" name="name" type="text" required maxLength={100} placeholder="Your name"
+                    className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40" />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-1.5">Email</label>
+                  <input id="email" name="email" type="email" required maxLength={255} placeholder="you@example.com"
+                    className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40" />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-1.5">Message</label>
+                  <textarea id="message" name="message" required maxLength={2000} rows={4} placeholder="Tell me about your project..."
+                    className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none" />
+                </div>
+                <button type="submit" disabled={submitting}
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-foreground text-background px-4 py-3 text-sm font-medium hover:opacity-90 transition-smooth disabled:opacity-60">
+                  {submitting ? (<><Loader2 className="size-4 animate-spin" /> Sending...</>) : (<>Send message <ArrowRight className="size-4" /></>)}
+                </button>
+              </form>
             </div>
           </div>
         </div>
