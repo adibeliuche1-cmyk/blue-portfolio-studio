@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Richie Nice | Front-End & WordPress Developer" },
+      { name: "description", content: "Front-End Web Developer and WordPress Developer specializing in responsive, modern, and high-performance websites. i build fast, user-friendly web experiences" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Richie Nice | Front-End & WordPress Developer" },
+      { property: "og:description", content: "Front-End Web Developer and WordPress Developer specializing in responsive, modern, and high-performance websites. i build fast, user-friendly web experiences" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Richie Nice | Front-End & WordPress Developer" },
+      { name: "twitter:description", content: "Front-End Web Developer and WordPress Developer specializing in responsive, modern, and high-performance websites. i build fast, user-friendly web experiences" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/3f17c77c-a585-41ca-bbe0-c3cd794a3c0e" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/3f17c77c-a585-41ca-bbe0-c3cd794a3c0e" },
     ],
     links: [
       {
