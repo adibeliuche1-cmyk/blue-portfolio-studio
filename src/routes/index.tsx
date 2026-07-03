@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Mail, Github, Linkedin, Code2, Palette, Rocket, Sparkles } from "lucide-react";
 import heroPortrait from "@/assets/hero-portrait.jpg";
+import logo from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,8 +21,8 @@ function Index() {
       {/* Nav */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/50">
         <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#" className="font-semibold tracking-tight text-lg">
-            <span className="text-gradient">Alex</span>Carter<span className="text-primary">.</span>
+          <a href="#" className="flex items-center" aria-label="Richienice home">
+            <img src={logo.url} alt="Richienice logo" className="h-10 w-auto object-contain" />
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             <a href="#work" className="hover:text-foreground transition-smooth">Work</a>
