@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Mail, Github, Linkedin, Code2, Palette, Rocket, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import { ArrowRight, Mail, Phone, Github, Linkedin, Code2, Palette, Rocket, Sparkles, Loader2 } from "lucide-react";
 import heroPortraitAsset from "@/assets/richie-nice.png.asset.json";
 const heroPortrait = heroPortraitAsset.url;
 import logo from "@/assets/logo.png.asset.json";
