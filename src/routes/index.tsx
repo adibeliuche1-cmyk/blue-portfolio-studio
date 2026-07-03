@@ -213,8 +213,8 @@ function Index() {
               <p className="text-lg opacity-90 max-w-xl mx-auto mb-10">
                 Available for new collaborations starting July 2026. Tell me about your project.
               </p>
-              <a href="mailto:hello@richienice.dev" className="inline-flex items-center gap-3 rounded-full bg-background text-foreground px-8 py-4 font-medium hover:scale-[1.02] transition-smooth shadow-elegant">
-                <Mail className="size-5" /> hello@richienice.dev
+              <a href="mailto:richienice5@gmail.com" className="inline-flex items-center gap-3 rounded-full bg-background text-foreground px-8 py-4 font-medium hover:scale-[1.02] transition-smooth shadow-elegant">
+                <Mail className="size-5" /> richienice5@gmail.com
               </a>
               <div className="mt-10 flex items-center justify-center gap-4">
                 <a href="#" className="size-11 grid place-items-center rounded-full bg-background/10 hover:bg-background/20 transition-smooth"><Github className="size-5" /></a>
