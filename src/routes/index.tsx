@@ -19,6 +19,44 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
+
+    if (!name || name.length > 100) return toast.error("Please enter your name (max 100 chars).");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255) return toast.error("Please enter a valid email.");
+    if (!message || message.length > 2000) return toast.error("Please enter a message (max 2000 chars).");
+
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/richienice5@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _subject: `New portfolio inquiry from ${name}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      toast.success("Message sent! I'll get back to you soon.");
+      form.reset();
+    } catch {
+      toast.error("Couldn't send message. Please email me directly.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground antialiased selection:bg-primary/20">
       {/* Nav */}
